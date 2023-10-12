@@ -70,8 +70,6 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
     return () => clearInterval(intervalId);
   }, []);
 
-  if (!prediction) return null;
-
   //mint form related
   const methods = useForm({
     defaultValues: {
@@ -93,16 +91,18 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
     await handleMint(reference, activeAccountId, wallet);
   };
 
+  if (!prediction) return null;
+
   return (
     <div className="mt-6 mb-12">
-      <div className="shadow-lg border my-5 p-5 bg-white flex">
-        <div className="w-1/2 aspect-square relative border">
+      <div className="shadow-lg border my-5 p-5 bg-white flex justify-center">
+        {/* <div className="w-1/2 aspect-square relative border">
           <img
             src={prediction.input.image}
             alt="input scribble"
             className="w-full aspect-square"
           />
-        </div>
+        </div> */}
         <div className="w-1/2 aspect-square relative">
           {prediction.output?.length ? (
             <img

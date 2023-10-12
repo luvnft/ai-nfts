@@ -1,32 +1,14 @@
 import * as React from "react";
-import { useEffect } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
 import { Undo as UndoIcon, Trash as TrashIcon } from "lucide-react";
 
 export default function Canvas({
-  startingPaths,
   onScribble,
   scribbleExists,
   setScribbleExists,
 }) {
   const canvasRef = React.useRef(null); // direct manipulation of the canvas
-
-  useEffect(() => {
-    // Hack to work around Firfox bug in react-sketch-canvas
-    // https://github.com/vinothpandian/react-sketch-canvas/issues/54
-    document
-      .querySelector("#react-sketch-canvas__stroke-group-0")
-      ?.removeAttribute("mask");
-
-    loadStartingPaths();
-  }, []);
-
-  async function loadStartingPaths() {
-    await canvasRef.current.loadPaths(startingPaths);
-    setScribbleExists(true);
-    onChange();
-  }
 
   const onChange = async () => {
     const paths = await canvasRef.current.exportPaths();

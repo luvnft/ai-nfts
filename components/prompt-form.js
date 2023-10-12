@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function PromptForm({
-  initialPrompt,
-  onSubmit,
-  scribbleExists,
-}) {
-  const [prompt, setPrompt] = useState(initialPrompt);
+export default function PromptForm({ onSubmit, scribbleExists }) {
+  const [prompt, setPrompt] = useState();
 
   const disabled = !(scribbleExists && prompt?.length > 0);
-
-  useEffect(() => {
-    setPrompt(initialPrompt);
-  }, [initialPrompt]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

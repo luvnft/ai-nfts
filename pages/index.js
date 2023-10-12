@@ -11,6 +11,7 @@ import Script from "next/script";
 import seeds from "lib/seeds";
 import pkg from "../package.json";
 import sleep from "lib/sleep";
+import Navbar from "components/navbar";
 
 const HOST = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -26,6 +27,7 @@ export default function Home() {
   const [initialPrompt] = useState(seed.prompt);
   const [scribble, setScribble] = useState(null);
 
+  //to study🟡
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,12 +43,16 @@ export default function Home() {
     setIsProcessing(true);
 
     const fileUrl = await uploadFile(scribble);
+    // console.log(scribble);
+
+    //scribble creates the buffer of image data on the canvas 🟡
 
     const body = {
       prompt,
       image: fileUrl,
       structure: "scribble",
     };
+    // data for http request
 
     const response = await fetch("/api/predictions", {
       method: "POST",
@@ -101,16 +107,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
+      <Navbar />
       <main className="container max-w-[1024px] mx-auto p-5 ">
         <div className="container max-w-[512px] mx-auto">
-          <hgroup>
+          {/* <hgroup>
             <h1 className="text-center text-5xl font-bold m-4">
               {pkg.appName}
             </h1>
             <p className="text-center text-xl opacity-60 m-4">
               {pkg.appSubtitle}
             </p>
-          </hgroup>
+          </hgroup> */}
 
           <Canvas
             startingPaths={seed.paths}

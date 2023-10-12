@@ -10,7 +10,7 @@ export default function Canvas({
   scribbleExists,
   setScribbleExists,
 }) {
-  const canvasRef = React.useRef(null);
+  const canvasRef = React.useRef(null); // direct manipulation of the canvas
 
   useEffect(() => {
     // Hack to work around Firfox bug in react-sketch-canvas

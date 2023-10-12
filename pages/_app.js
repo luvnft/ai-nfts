@@ -1,3 +1,4 @@
+import { WalletContextProvider } from "@mintbase-js/react";
 import "../styles/globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Tooltip } from "react-tooltip";
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }) {
       <Tooltip id="bytescale-tooltip" />
       <Tooltip id="github-tooltip" />
       <Tooltip id="youtube-tooltip" />
-      <Component {...pageProps} />
+      <WalletContextProvider>
+        <Component {...pageProps} />
+      </WalletContextProvider>
       <Analytics />
     </>
   );

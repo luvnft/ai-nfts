@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
-import packageData from "../../../package.json";
+// import packageData from "../../../package.json";
 
-const replicate = new Replicate({
-  auth: process.env.REPLICATE_API_TOKEN,
-  userAgent: ${packageData.name}/${packageData.version},
-});
+// const replicate = new Replicate({
+//   auth: process.env.REPLICATE_API_TOKEN,
+//   userAgent: `${packageData.name}/${packageData.version}`,
+// });
 
 async function getObjectFromRequestBodyStream(body) {
   const input = await body.getReader().read();
@@ -15,7 +15,7 @@ async function getObjectFromRequestBodyStream(body) {
 }
 
 // const WEBHOOK_HOST = process.env.VERCEL_URL
-//   ? https://${process.env.VERCEL_URL}
+//   ? `https://${process.env.VERCEL_URL}`
 //   : process.env.NGROK_HOST;
 
 export default async function handler(req) {
@@ -39,7 +39,7 @@ export default async function handler(req) {
     //   "scribble-diffusion-jagilley-controlnet",
     //   {
     //     input,
-    //     webhook: ${WEBHOOK_HOST}/api/replicate-webhook,
+    //     webhook: `${WEBHOOK_HOST}/api/replicate-webhook`,
     //     webhook_events_filter: ["start", "completed"],
     //   }
     // );
@@ -49,7 +49,7 @@ export default async function handler(req) {
       version:
         "435061a1b5a4c1e26740464bf786efdfa9cb3a3ac488595a2de23e143fdb0117",
       input,
-      // webhook: ${WEBHOOK_HOST}/api/replicate-webhook,
+      // webhook: `${WEBHOOK_HOST}/api/replicate-webhook`,
       // webhook_events_filter: ["start", "completed"],
     });
   }

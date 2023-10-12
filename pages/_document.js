@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-import pkg from "../package.json";
-import Footer from "components/footer";
+// import pkg from "../package.json";
+// import Footer from "components/footer";
 
 export default function Document() {
   return (
@@ -10,7 +10,7 @@ export default function Document() {
 
       <body className="bg-gray-100">
         <Main />
-        <Footer />
+        {/* <Footer /> */}
         <NextScript />
       </body>
     </Html>

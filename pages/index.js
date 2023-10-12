@@ -12,12 +12,15 @@ import seeds from "lib/seeds";
 import pkg from "../package.json";
 import sleep from "lib/sleep";
 import Navbar from "components/navbar";
+import { useWallet } from "@mintbase-js/react";
+import { MbText } from "mintbase-ui";
 
 const HOST = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000";
 
 export default function Home() {
+  const { isConnected } = useWallet();
   const [error, setError] = useState(null);
   const [submissionCount, setSubmissionCount] = useState(0);
   const [predictions, setPredictions] = useState({});
@@ -93,6 +96,47 @@ export default function Home() {
     setIsProcessing(false);
   };
 
+  if (isConnected)
+    return (
+      <>
+        <Navbar />
+        <main className="container max-w-[1024px] mx-auto p-5 ">
+          <div className="container max-w-[512px] mx-auto">
+            {/* <hgroup>
+            <h1 className="text-center text-5xl font-bold m-4">
+              {pkg.appName}
+            </h1>
+            <p className="text-center text-xl opacity-60 m-4">
+              {pkg.appSubtitle}
+            </p>
+          </hgroup> */}
+
+            <Canvas
+              startingPaths={seed.paths}
+              onScribble={setScribble}
+              scribbleExists={scribbleExists}
+              setScribbleExists={setScribbleExists}
+            />
+
+            <PromptForm
+              initialPrompt={initialPrompt}
+              onSubmit={handleSubmit}
+              isProcessing={isProcessing}
+              scribbleExists={scribbleExists}
+            />
+
+            <Error error={error} />
+          </div>
+
+          <Predictions
+            predictions={predictions}
+            isProcessing={isProcessing}
+            submissionCount={submissionCount}
+          />
+        </main>
+      </>
+    );
+
   return (
     <>
       <Head>
@@ -107,43 +151,25 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
-      <Navbar />
-      <main className="container max-w-[1024px] mx-auto p-5 ">
-        <div className="container max-w-[512px] mx-auto">
-          {/* <hgroup>
-            <h1 className="text-center text-5xl font-bold m-4">
-              {pkg.appName}
-            </h1>
-            <p className="text-center text-xl opacity-60 m-4">
-              {pkg.appSubtitle}
-            </p>
-          </hgroup> */}
 
-          <Canvas
-            startingPaths={seed.paths}
-            onScribble={setScribble}
-            scribbleExists={scribbleExists}
-            setScribbleExists={setScribbleExists}
-          />
-
-          <PromptForm
-            initialPrompt={initialPrompt}
-            onSubmit={handleSubmit}
-            isProcessing={isProcessing}
-            scribbleExists={scribbleExists}
-          />
-
-          <Error error={error} />
+      <div className="mx-6 sm:mx-24 mt-4 mb-4">
+        <div className="w-full flex flex-col justify-center items-center">
+          <div className="w-full flex flex-col justify-center items-center space-y-8">
+            <div className="flex flex-col justify-center items-center space-y-8">
+              <MbText className="h1-90">NFT AI Artistry</MbText>
+              <MbText className="p-big-90">
+                A platform that allows artists and AI algorithms to collaborate
+                in the creation of unique NFT artworks.
+              </MbText>
+            </div>
+            <div>
+              <Navbar />
+            </div>
+          </div>
         </div>
+      </div>
 
-        <Predictions
-          predictions={predictions}
-          isProcessing={isProcessing}
-          submissionCount={submissionCount}
-        />
-      </main>
-
-      <Script src="https://js.bytescale.com/upload-js-full/v1" />
+      {/* <Script src="https://js.bytescale.com/upload-js-full/v1" /> */}
     </>
   );
 }

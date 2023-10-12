@@ -4,6 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Loader from "components/loader";
+import { FormProvider, useForm } from "react-hook-form";
+import { MbButton, MbText } from "mintbase-ui";
+import MintForm from "./MintForm";
+import { useWallet } from "@mintbase-js/react";
+import { DESCRIPTION, MAIN_IMAGE, TITLE } from "../constants";
 
 export default function Predictions({ predictions, submissionCount }) {
   const scrollRef = useRef(null);
@@ -44,6 +49,7 @@ export default function Predictions({ predictions, submissionCount }) {
 }
 
 export function Prediction({ prediction, showLinkToNewScribble = false }) {
+  const { selector, activeAccountId } = useWallet();
   const [linkCopied, setLinkCopied] = useState(false);
 
   const copyLink = () => {
@@ -65,6 +71,27 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
   }, []);
 
   if (!prediction) return null;
+
+  //mint form related
+  const methods = useForm({
+    defaultValues: {
+      [TITLE]: "",
+      [DESCRIPTION]: "",
+      [MAIN_IMAGE]: null,
+    },
+  });
+  const { getValues, handleSubmit } = methods;
+
+  const onSubmit = async (data) => {
+    const wallet = await selector.wallet();
+    const file = getValues(MAIN_IMAGE);
+    if (file == null || activeAccountId == null) {
+      console.error("Error uploading file");
+      return;
+    }
+    const reference = await handleUpload(file, data);
+    await handleMint(reference, activeAccountId, wallet);
+  };
 
   return (
     <div className="mt-6 mb-12">
@@ -93,7 +120,7 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
       <div className="text-center px-4 opacity-60 text-xl">
         &ldquo;{prediction.input.prompt}&rdquo;
       </div>
-      <div className="text-center py-2">
+      {/* <div className="text-center py-2">
         <button className="lil-button" onClick={copyLink}>
           <CopyIcon className="icon" />
           {linkCopied ? "Copied!" : "Copy link"}
@@ -107,6 +134,23 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
             </button>
           </Link>
         )}
+      </div> */}
+      <div className="flex flex-col items-center justify-center mt-2">
+        <MbText className="text-3xl">Mint your NFT Now</MbText>
+        <div className="w-full mt-4 space-y-4">
+          <FormProvider {...methods}>
+            <form
+              onSubmit={handleSubmit(onSubmit, (errorMsgs) =>
+                console.error(errorMsgs)
+              )}
+            >
+              <MintForm />
+              <div className="flex justify-center items-center mt-4">
+                <MbButton type="submit" label="Mint Your NFT" />
+              </div>
+            </form>
+          </FormProvider>
+        </div>
       </div>
     </div>
   );

@@ -169,7 +169,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <Script src="https://js.bytescale.com/upload-js-full/v1" /> */}
+      <Script src="https://js.bytescale.com/upload-js-full/v1" />
     </>
   );
 }

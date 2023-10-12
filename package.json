@@ -38,6 +38,7 @@
     "next": "^13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.47.0",
     "react-sketch-canvas": "^6.2.0",
     "react-spinners": "^0.13.8",
     "react-tooltip": "^5.13.0",

@@ -49,7 +49,9 @@ export default function Predictions({ predictions, submissionCount }) {
 }
 
 export function Prediction({ prediction, showLinkToNewScribble = false }) {
+  const { register, handleSubmit } = useForm();
   const { selector, activeAccountId } = useWallet();
+
   const [linkCopied, setLinkCopied] = useState(false);
 
   const copyLink = () => {
@@ -71,24 +73,17 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
   }, []);
 
   //mint form related
-  const methods = useForm({
-    defaultValues: {
-      [TITLE]: "",
-      [DESCRIPTION]: "",
-      [MAIN_IMAGE]: null,
-    },
-  });
-  const { getValues, handleSubmit } = methods;
 
   const onSubmit = async (data) => {
-    const wallet = await selector.wallet();
-    const file = getValues(MAIN_IMAGE);
-    if (file == null || activeAccountId == null) {
-      console.error("Error uploading file");
-      return;
-    }
-    const reference = await handleUpload(file, data);
-    await handleMint(reference, activeAccountId, wallet);
+    console.log("Data", data);
+    // const wallet = await selector.wallet();
+    // const file = getValues(MAIN_IMAGE);
+    // if (file == null || activeAccountId == null) {
+    //   console.error("Error uploading file");
+    //   return;
+    // }
+    // const reference = await handleUpload(file, data);
+    // await handleMint(reference, activeAccountId, wallet);
   };
 
   if (!prediction) return null;
@@ -138,18 +133,36 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
       <div className="flex flex-col items-center justify-center mt-2">
         <MbText className="text-3xl">Mint your NFT Now</MbText>
         <div className="w-full mt-4 space-y-4">
-          <FormProvider {...methods}>
-            <form
-              onSubmit={handleSubmit(onSubmit, (errorMsgs) =>
-                console.error(errorMsgs)
-              )}
-            >
-              <MintForm />
-              <div className="flex justify-center items-center mt-4">
-                <MbButton type="submit" label="Mint Your NFT" />
-              </div>
-            </form>
-          </FormProvider>
+          <form
+            className="flex flex-col gap-2"
+            onSubmit={handleSubmit(onSubmit, (errorMsgs) =>
+              console.error(errorMsgs)
+            )}
+          >
+            <label>Name</label>
+            <input
+              className="text-black"
+              placeholder="Name"
+              required
+              {...register("title", {
+                required: true,
+                minLength: { value: 1, message: "" },
+              })}
+            />
+
+            <label>Description</label>
+            <input
+              className="text-black"
+              placeholder="Token description"
+              {...register("description", {
+                required: true,
+              })}
+            />
+
+            <div className="flex justify-center items-center mt-4">
+              <MbButton type="submit" label="Mint Your NFT" />
+            </div>
+          </form>
         </div>
       </div>
     </div>

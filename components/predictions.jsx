@@ -7,6 +7,8 @@ import Loader from "components/loader";
 import { FormProvider, useForm } from "react-hook-form";
 import { MbButton, MbText } from "mintbase-ui";
 import { useWallet } from "@mintbase-js/react";
+import { mint, execute } from "@mintbase-js/sdk";
+import { uploadReference } from "@mintbase-js/storage";
 
 export default function Predictions({ predictions, submissionCount }) {
   const scrollRef = useRef(null);
@@ -74,12 +76,20 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
 
   const onSubmit = async (data) => {
     console.log("Data", data);
-    // const wallet = await selector.wallet();
-    // const file = getValues(MAIN_IMAGE);
-    // if (file == null || activeAccountId == null) {
-    //   console.error("Error uploading file");
-    //   return;
-    // }
+    const wallet = await selector.wallet();
+    const imageSrc = prediction.output[prediction.output.length - 1];
+    // convert to blob
+    const blob = await fetch(imageSrc).then((r) => r.blob());
+    const file = new File([blob], "output_image.png", { type: "image/png" });
+
+    if (file == null || activeAccountId == null) {
+      console.error("Error uploading file");
+      return;
+    } else {
+      console.log("File", file);
+      const reference = await handleUpload(file, data);
+      const txStatus = await handleMint(reference, activeAccountId, wallet);
+    }
     // const reference = await handleUpload(file, data);
     // await handleMint(reference, activeAccountId, wallet);
   };
@@ -165,4 +175,43 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
       </div>
     </div>
   );
+}
+
+// upload asset to arweave and get reference
+async function handleUpload(file, data) {
+  const metadata = {
+    title: data.title,
+    description: data.description,
+    media: file,
+  };
+
+  const referenceJson = await uploadReference(metadata);
+  console.log("Successfully uploaded with reference:", referenceJson.id);
+  return referenceJson.id;
+}
+
+// mint NFT using CONTRACT_ADDRESS on testnet
+async function handleMint(reference, activeAccountId, wallet) {
+  if (reference) {
+    const mintCall = mint({
+      noMedia: true,
+      metadata: {
+        reference: reference,
+      },
+      ownerId: activeAccountId,
+    });
+
+    const output = await execute({ wallet }, mintCall);
+    // console.log(
+    //   "Successfully minted:",
+    //   output.transaction_outcome.outcome.status.SuccessReceiptId
+    // );
+    if (output.transaction_outcome.outcome.status.SuccessReceiptId) {
+      alert("Successfully minted");
+      return true;
+    } else {
+      alert("Error minting");
+      return false;
+    }
+  }
 }

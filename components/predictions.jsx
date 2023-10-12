@@ -6,9 +6,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import Loader from "components/loader";
 import { FormProvider, useForm } from "react-hook-form";
 import { MbButton, MbText } from "mintbase-ui";
-import MintForm from "./MintForm";
 import { useWallet } from "@mintbase-js/react";
-import { DESCRIPTION, MAIN_IMAGE, TITLE } from "../constants";
 
 export default function Predictions({ predictions, submissionCount }) {
   const scrollRef = useRef(null);

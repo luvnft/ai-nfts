@@ -46,7 +46,7 @@ export default function Predictions({ predictions, submissionCount }) {
   );
 }
 
-export function Prediction({ prediction, showLinkToNewScribble = false }) {
+export function Prediction({ prediction, showLinkToNewScribble = true }) {
   const { register, handleSubmit } = useForm();
   const { selector, activeAccountId } = useWallet();
 
@@ -113,11 +113,11 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
       <div className="text-center px-4 opacity-60 text-xl">
         &ldquo;{prediction.input.prompt}&rdquo;
       </div>
-      {/* <div className="text-center py-2">
-        <button className="lil-button" onClick={copyLink}>
+      <div className="text-center py-2">
+        {/* <button className="lil-button" onClick={copyLink}>
           <CopyIcon className="icon" />
           {linkCopied ? "Copied!" : "Copy link"}
-        </button>
+        </button> */}
 
         {showLinkToNewScribble && (
           <Link href="/">
@@ -127,7 +127,7 @@ export function Prediction({ prediction, showLinkToNewScribble = false }) {
             </button>
           </Link>
         )}
-      </div> */}
+      </div>
       <div className="flex flex-col items-center justify-center mt-2">
         <MbText className="text-3xl">Mint your NFT Now</MbText>
         <div className="w-full mt-4 space-y-4">

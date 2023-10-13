@@ -1,10 +1,9 @@
 import { WalletContextProvider } from "@mintbase-js/react";
 import "../styles/globals.css";
 import "react-tooltip/dist/react-tooltip.css";
-// import { Analytics } from "@vercel/analytics/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Tooltip } from "react-tooltip";
-import { NEAR_NETWORKS, mbjs, MINTBASE_CONTRACTS } from "@mintbase-js/sdk";
+import { NEAR_NETWORKS, mbjs } from "@mintbase-js/sdk";
 
 function MyApp({ Component, pageProps }) {
   const network = process.env.NEXT_PUBLIC_NETWORK || NEAR_NETWORKS.TESTNET;
@@ -15,7 +14,7 @@ function MyApp({ Component, pageProps }) {
 
   mbjs.config({
     network: "testnet",
-    contractAddress: "nftaiartistry.mintspace2.testnet",
+    contractAddress: contractAddress,
   });
 
   const queryClient = new QueryClient();

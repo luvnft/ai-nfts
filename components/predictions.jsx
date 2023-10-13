@@ -1,10 +1,8 @@
-import copy from "copy-to-clipboard";
 import { Copy as CopyIcon, PlusCircle as PlusCircleIcon } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Loader from "components/loader";
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { MbButton, MbText } from "mintbase-ui";
 import { useWallet } from "@mintbase-js/react";
 import { mint, execute } from "@mintbase-js/sdk";
@@ -56,25 +54,6 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
   const { selector, activeAccountId } = useWallet();
   const [uploading, setUploading] = useState(false);
   const [minting, setMinting] = useState(false);
-  const [linkCopied, setLinkCopied] = useState(false);
-
-  const copyLink = () => {
-    const url =
-      window.location.origin +
-      "/scribbles/" +
-      (prediction.uuid || prediction.id); // if the prediction is from the Replicate API it'll have `id`. If it's from the SQL database, it'll have `uuid`
-    copy(url);
-    setLinkCopied(true);
-  };
-
-  // Clear the "Copied!" message after 4 seconds
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setLinkCopied(false);
-    }, 4 * 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
 
   //mint form related
 
@@ -106,8 +85,6 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
         setUploading(false);
       }
     }
-    // const reference = await handleUpload(file, data);
-    // await handleMint(reference, activeAccountId, wallet);
   };
 
   if (!prediction) return null;
@@ -127,23 +104,14 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
           </div>
         )}
       </div>
-      {/* </div> */}
+
       <div className="text-center px-4 opacity-60 text-xl">
         &ldquo;{prediction.input.prompt}&rdquo;
       </div>
       <div className="text-center py-2">
-        {/* <button className="lil-button" onClick={copyLink}>
-          <CopyIcon className="icon" />
-          {linkCopied ? "Copied!" : "Copy link"}
-        </button> */}
-
         {showLinkToNewScribble && (
           <Link href="/">
-            <button
-              className="lil-button"
-              onClick={copyLink}
-              style={{ color: "#0f766e" }}
-            >
+            <button className="lil-button" style={{ color: "#0f766e" }}>
               <PlusCircleIcon className="icon" />
               Create a new scribble
             </button>

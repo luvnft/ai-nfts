@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
       >
         <Component {...pageProps} />
       </WalletContextProvider>
-      <Analytics />
+      {/* <Analytics /> */}
     </>
   );
 }

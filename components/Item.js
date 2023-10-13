@@ -24,7 +24,7 @@ function Item({ item, showModal }) {
             )}
           </div>
         ),
-        midLeftText: item.title,
+        midLeftText: <div className="text-black">{item.title}</div>,
         midRightText: "",
         botRightIcon: EIconName.NONE,
         onCenterElementClick: () => showModal({ metadataId: item.metadata_id }),

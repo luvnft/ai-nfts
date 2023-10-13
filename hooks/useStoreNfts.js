@@ -13,12 +13,7 @@ const mapStoreNfts = (data) => ({
 });
 
 const useStoreNfts = (store) => {
-  const defaultStores =
-    process.env.NEXT_PUBLIC_STORES || "nftaiartistry.mintspace2.testnet";
-
-  const formatedStores = defaultStores.split(/[ ,]+/);
-
-  console.log("Formatted Stores", formatedStores);
+  const formatedStores = ["nftaiartistry.mintspace2.testnet"];
 
   const { isLoading, error, data } = useQuery(
     ["storeNfts", store],

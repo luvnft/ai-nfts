@@ -7,8 +7,8 @@ function Navbar() {
   const { isConnected, connect, disconnect, activeAccountId } = useWallet();
   const router = useRouter();
 
-  const isCreateNFTActive = router.pathname === "";
-  const isMarketplaceActive = router.pathname === "";
+  const isCreateNFTActive = router.pathname === "/";
+  const isMarketplaceActive = router.pathname === "/marketplace";
 
   function truncateString(str, num) {
     if (str.length <= num) {
@@ -36,7 +36,7 @@ function Navbar() {
           Create NFT
         </Link>
         <Link
-          href="/"
+          href="/marketplace"
           className={`text-black no-underline px-4 py-2 rounded-full transition hover:shadow-lg ${
             isMarketplaceActive ? "bg-gray-300" : ""
           } hover:bg-gray-300`}

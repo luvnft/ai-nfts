@@ -4,6 +4,7 @@ import Head from "next/head";
 // import Header from "../components/Header";
 import Items from "../components/Items";
 import BuyModal from "../components/BuyModal/BuyModal";
+import Navbar from "components/navbar";
 
 function Store() {
   const [showBuyModal, setShowBuyModal] = useState(false);
@@ -21,10 +22,11 @@ function Store() {
 
   return (
     <div className="flex flex-1 flex-col min-h-screen text-gray-500">
-      <Head>
+      {/* <Head>
         <title>Mintbase - Simple Marketplace Example</title>
-      </Head>
+      </Head> */}
       {/* <Header /> */}
+      <Navbar />
       <div className="m-8">
         <MbText>
           1. Make sure to change the env NEXT_PUBLIC_AFFILIATE_ACCOUNT to your

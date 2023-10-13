@@ -7,4 +7,4 @@
 
 ## Suggestions
 
-- AI Art
+- AI NFTs

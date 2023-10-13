@@ -145,7 +145,7 @@ export default function Home() {
           content={`${HOST}/og-b7xwc4g4wrdrtneilxnbngzvti.jpg`}
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> */}
       </Head>
 
       <div className="mx-6 sm:mx-24 mt-56 mb-4">

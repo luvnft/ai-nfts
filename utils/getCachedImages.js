@@ -26,5 +26,3 @@ export const getCachedImage = (image, useThumbnail) => {
 
   return url;
 };
-
-export const getCachedThumbnail = (image) => getCachedImage(image, true);

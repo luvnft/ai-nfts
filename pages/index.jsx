@@ -11,6 +11,7 @@ import Script from "next/script";
 import pkg from "../package.json";
 import sleep from "lib/sleep";
 import Navbar from "components/navbar";
+import Intro from "components/intro";
 import { useWallet } from "@mintbase-js/react";
 import { MbText } from "mintbase-ui";
 
@@ -147,19 +148,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
 
-      <div className="mx-6 sm:mx-24 mt-4 mb-4">
-        <div className="w-full flex flex-col justify-center items-center">
-          <div className="w-full flex flex-col justify-center items-center space-y-8">
-            <div className="flex flex-col justify-center items-center space-y-8">
-              <MbText className="h1-90">NFT AI Artistry</MbText>
-              <MbText className="p-big-90">
-                A platform that allows artists and AI algorithms to collaborate
-                in the creation of unique NFT artworks.
-              </MbText>
-            </div>
-            <div>
-              <Navbar />
-            </div>
+      <div className="mx-6 sm:mx-24 mt-56 mb-4">
+        <div className="w-full flex flex-col justify-center items-center space-y-8">
+          <div className="flex flex-col justify-center items-center space-y-8">
+            <MbText className="h1-90">NFT AI Artistry</MbText>
+            <MbText className="p-big-90">
+              A platform that allows artists and AI algorithms to collaborate in
+              the creation of unique NFT artworks.
+            </MbText>
+          </div>
+          <div>
+            <Intro />
           </div>
         </div>
       </div>

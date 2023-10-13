@@ -1,11 +1,19 @@
 import { useWallet } from "@mintbase-js/react";
 import { MbButton } from "mintbase-ui";
+import Link from "next/link";
 
 function Navbar() {
   const { isConnected, connect, disconnect, activeAccountId } = useWallet();
 
+  function truncateString(str, num) {
+    if (str.length <= num) {
+      return str;
+    }
+    return str.slice(0, num) + "...";
+  }
+  const truncatedAccountId = truncateString(activeAccountId, 20);
   const buttonLabel = isConnected
-    ? `Sign Out ${activeAccountId}`
+    ? `Sign Out ${truncatedAccountId}`
     : " Connect NEAR Wallet";
 
   const buttonAction = isConnected ? disconnect : connect;
@@ -16,7 +24,14 @@ function Navbar() {
         <h1 className="font-bold p-2 sm:p-4 border-gray-100">
           NFT AI Artistry
         </h1>
-        <div></div>
+        <div className="flex gap-3">
+          <Link href="/" className="text-black no-underline hover:underline">
+            Create NFT
+          </Link>
+          <Link href="/" className="text-black no-underline hover:underline">
+            Marketplace
+          </Link>
+        </div>
       </div>
       {/** login/logout with wallet */}
       <div className="flex items-center sm:mr-2">

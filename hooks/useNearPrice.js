@@ -9,7 +9,7 @@ import { nearPrice } from "@mintbase-js/data";
 import { useEffect, useState } from "react";
 
 const useNearPrice = () => {
-  const [nearPriceData, setNearPriceData] = useState < string > "0";
+  const [nearPriceData, setNearPriceData] = useState("0");
 
   useEffect(() => {
     const getNearPrice = async () => {

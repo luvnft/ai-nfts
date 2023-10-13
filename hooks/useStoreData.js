@@ -34,6 +34,8 @@ const useStoreData = () => {
     }
   );
 
+  // console.log("useStoreData hook data", data);
+
   return {
     ...data,
     error,

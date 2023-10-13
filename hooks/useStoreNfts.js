@@ -24,15 +24,19 @@ const useStoreNfts = (store) => {
 
   const formatedStores = defaultStores.split(/[ ,]+/);
 
+  console.log("Formatted Stores", formatedStores);
+
   const { isLoading, error, data } = useQuery(
     ["storeNfts", store],
-    () => storeNfts(store || formatedStores, true),
+    () => storeNfts(formatedStores, false),
     {
       retry: false,
       refetchOnWindowFocus: false,
       select: mapStoreNfts,
     }
   );
+
+  console.log("useStoreNfts hook data", data);
 
   return { ...data, error, loading: isLoading };
 };

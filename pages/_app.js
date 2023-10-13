@@ -1,5 +1,6 @@
 import { WalletContextProvider } from "@mintbase-js/react";
 import "../styles/globals.css";
+import "react-tooltip/dist/react-tooltip.css";
 // import { Analytics } from "@vercel/analytics/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Tooltip } from "react-tooltip";
@@ -14,18 +15,15 @@ function MyApp({ Component, pageProps }) {
 
   mbjs.config({
     network: "testnet",
-    contractAddress: MINTBASE_CONTRACTS.testnet,
+    contractAddress: "nftaiartistry.mintspace2.testnet",
   });
 
   const queryClient = new QueryClient();
 
   return (
     <>
-      <Tooltip id="replicate-tooltip" />
-      <Tooltip id="vercel-tooltip" />
-      <Tooltip id="bytescale-tooltip" />
-      <Tooltip id="github-tooltip" />
-      <Tooltip id="youtube-tooltip" />
+      <Tooltip id="minted-nft" />
+
       <QueryClientProvider client={queryClient}>
         <WalletContextProvider
           contractAddress={contractAddress}

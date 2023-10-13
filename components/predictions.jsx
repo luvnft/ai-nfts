@@ -9,6 +9,7 @@ import { MbButton, MbText } from "mintbase-ui";
 import { useWallet } from "@mintbase-js/react";
 import { mint, execute } from "@mintbase-js/sdk";
 import { uploadReference } from "@mintbase-js/storage";
+import { BounceLoader } from "react-spinners";
 
 export default function Predictions({ predictions, submissionCount }) {
   const scrollRef = useRef(null);
@@ -51,6 +52,8 @@ export default function Predictions({ predictions, submissionCount }) {
 export function Prediction({ prediction, showLinkToNewScribble = true }) {
   const { register, handleSubmit } = useForm();
   const { selector, activeAccountId } = useWallet();
+  const [uploading, setUploading] = useState(false);
+  const [minting, setMinting] = useState(false);
 
   const [linkCopied, setLinkCopied] = useState(false);
 
@@ -75,7 +78,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
   //mint form related
 
   const onSubmit = async (data) => {
-    console.log("Data", data);
+    // console.log("Data", data);
     const wallet = await selector.wallet();
     const imageSrc = prediction.output[prediction.output.length - 1];
     // convert to blob
@@ -86,9 +89,21 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
       console.error("Error uploading file");
       return;
     } else {
-      console.log("File", file);
-      const reference = await handleUpload(file, data);
-      const txStatus = await handleMint(reference, activeAccountId, wallet);
+      // console.log("File", file);
+      try {
+        // upload to arweave -> Mint NFT
+        setUploading(true);
+        const reference = await handleUpload(file, data);
+        setUploading(false);
+        setMinting(true);
+        const txStatus = await handleMint(reference, activeAccountId, wallet);
+        setMinting(false);
+      } catch (error) {
+        console.log("Error", error);
+        alert("Error minting");
+        setMinting(false);
+        setUploading(false);
+      }
     }
     // const reference = await handleUpload(file, data);
     // await handleMint(reference, activeAccountId, wallet);
@@ -98,13 +113,6 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
 
   return (
     <div className="mt-6 mb-12">
-      {/* <div className="w-1/2 aspect-square relative border">
-          <img
-            src={prediction.input.image}
-            alt="input scribble"
-            className="w-full aspect-square"
-          />
-        </div> */}
       <div className="w-1/2 aspect-circle flex justify-center items-center mx-auto">
         {prediction.output?.length ? (
           <img
@@ -137,7 +145,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
           </Link>
         )}
       </div>
-      {prediction.output?.length ? (
+      {prediction.output?.length && !minting && !uploading ? (
         <div className="flex flex-col items-center justify-center mt-2">
           <MbText className="text-3xl">Mint your NFT Now</MbText>
           <div className="w-full mt-4 space-y-4">
@@ -173,7 +181,26 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
             </form>
           </div>
         </div>
-      ) : null}
+      ) : (
+        <div>
+          {uploading && (
+            <div className="flex flex-col justify-center items-center mt-4">
+              <BounceLoader color="#0f766e" />
+              <p className="text-lg font-bold text-green-800">
+                Uploading Assets to Arweave
+              </p>
+            </div>
+          )}
+          {minting && (
+            <div className="flex flex-col justify-center items-center mt-4">
+              <BounceLoader color="#0f766e" />
+              <p className="text-lg font-bold text-green-800">
+                Minting your NFT
+              </p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

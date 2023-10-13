@@ -15,10 +15,6 @@ import Intro from "components/intro";
 import { useWallet } from "@mintbase-js/react";
 import { MbText } from "mintbase-ui";
 
-const HOST = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
-
 export default function Home() {
   const { isConnected } = useWallet();
   const [error, setError] = useState(null);
@@ -140,10 +136,10 @@ export default function Home() {
         <meta name="description" content={pkg.appMetaDescription} />
         <meta property="og:title" content={pkg.appName} />
         <meta property="og:description" content={pkg.appMetaDescription} />
-        <meta
+        {/* <meta
           property="og:image"
           content={`${HOST}/og-b7xwc4g4wrdrtneilxnbngzvti.jpg`}
-        />
+        /> */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> */}
       </Head>

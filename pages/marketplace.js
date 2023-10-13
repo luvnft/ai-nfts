@@ -51,7 +51,7 @@ function Store() {
 
       {/* Useful Div 🟡🟡🟡 */}
       <div className="flex w-full">
-        {/* <Items showModal={handleOpenBuyModal} /> */}
+        <Items showModal={handleOpenBuyModal} />
       </div>
       <div className="mx-24 mt-4">
         {!!showBuyModal && (

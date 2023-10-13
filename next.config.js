@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
+    domains: ["arweave.net", "image-cache-service-z3w7d7dnea-ew.a.run.app"],
     remotePatterns: [
       {
         protocol: "https",

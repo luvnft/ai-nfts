@@ -1,6 +1,7 @@
 import { WalletContextProvider } from "@mintbase-js/react";
 import "../styles/globals.css";
-import { Analytics } from "@vercel/analytics/react";
+// import { Analytics } from "@vercel/analytics/react";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { Tooltip } from "react-tooltip";
 import { NEAR_NETWORKS, Network, mbjs } from "@mintbase-js/sdk";
 
@@ -17,6 +18,8 @@ function MyApp({ Component, pageProps }) {
     contractAddress: contractAddress,
   });
 
+  const queryClient = new QueryClient();
+
   return (
     <>
       <Tooltip id="replicate-tooltip" />
@@ -24,12 +27,14 @@ function MyApp({ Component, pageProps }) {
       <Tooltip id="bytescale-tooltip" />
       <Tooltip id="github-tooltip" />
       <Tooltip id="youtube-tooltip" />
-      <WalletContextProvider
-        contractAddress={contractAddress}
-        network={nearNetwork}
-      >
-        <Component {...pageProps} />
-      </WalletContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <WalletContextProvider
+          contractAddress={contractAddress}
+          network={nearNetwork}
+        >
+          <Component {...pageProps} />
+        </WalletContextProvider>
+      </QueryClientProvider>
       {/* <Analytics /> */}
     </>
   );

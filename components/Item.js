@@ -1,4 +1,3 @@
-import { StoreNftsData } from "@mintbase-js/data/lib/api/storeNfts/storeNfts.types";
 import { EIconName, MbThingCard } from "mintbase-ui";
 import { parseMedia } from "../utils";
 import { getCachedImage } from "../utils/getCachedImages";

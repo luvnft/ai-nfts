@@ -24,22 +24,22 @@ function Navbar() {
   const buttonAction = isConnected ? disconnect : connect;
 
   return (
-    <nav className="flex justify-between items-center w-full bg-white sticky top-0 z-40 lg:border-b border-solid border-gray-150">
-      <h1 className="font-bold p-2 sm:p-4 border-gray-100">NFT AI Artistry</h1>
+    <nav className="flex justify-between items-center w-full bg-teal-700 sticky top-0 z-40 lg:border-b border-solid border-gray-150">
+      <h1 className="font-bold p-2 sm:p-4  text-teal-100">NFT AI Artistry</h1>
       <div className="flex gap-3">
         <Link
           href="/"
-          className={`text-black no-underline px-4 py-2 rounded-full transition hover:shadow-lg ${
-            isCreateNFTActive ? "bg-gray-300" : "bg-white"
-          } hover:bg-gray-300`}
+          className={`text-teal-100 font-bold no-underline px-4 py-2 rounded-lg transition hover:shadow-lg ${
+            isCreateNFTActive ? "bg-cyan-950 text-teal-100" : ""
+          } hover:bg-cyan-950 hover:text-teal-100`}
         >
           Create NFT
         </Link>
         <Link
           href="/marketplace"
-          className={`text-black no-underline px-4 py-2 rounded-full transition hover:shadow-lg ${
-            isMarketplaceActive ? "bg-gray-300" : ""
-          } hover:bg-gray-300`}
+          className={`text-teal-100 font-bold no-underline px-4 py-2 rounded-lg transition hover:shadow-lg ${
+            isMarketplaceActive ? "bg-cyan-950 text-teal-100" : ""
+          } hover:bg-cyan-950 hover:text-teal-100`}
         >
           Marketplace
         </Link>
@@ -47,7 +47,11 @@ function Navbar() {
 
       {/** login/logout with wallet */}
       <div className="flex items-center sm:mr-2">
-        <MbButton onClick={buttonAction} label={buttonLabel} />
+        <MbButton
+          onClick={buttonAction}
+          label={buttonLabel}
+          style={{ backgroundColor: "#083344", color: "#ccfbf1" }}
+        />
       </div>
     </nav>
   );

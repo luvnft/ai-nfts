@@ -96,18 +96,18 @@ export default function Home() {
 
   if (isConnected)
     return (
-      <>
+      <div className="bg-teal-50 h-screen">
         <Navbar />
-        <main className="container max-w-[1024px] mx-auto p-5 ">
+        <main className="container max-w-[1024px] mx-auto p-5 mt-6">
           <div className="container max-w-[512px] mx-auto">
-            <hgroup>
+            {/* <hgroup>
               <h1 className="text-center text-5xl font-bold m-4">
                 {pkg.appName}
               </h1>
               <p className="text-center text-xl opacity-60 m-4">
                 {pkg.appSubtitle}
               </p>
-            </hgroup>
+            </hgroup> */}
 
             <Canvas
               onScribble={setScribble}
@@ -130,7 +130,7 @@ export default function Home() {
             submissionCount={submissionCount}
           />
         </main>
-      </>
+      </div>
     );
 
   return (

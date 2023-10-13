@@ -21,7 +21,7 @@ function Store() {
   };
 
   return (
-    <div className="flex flex-1 flex-col min-h-screen text-gray-500">
+    <div className="flex flex-1 flex-col min-h-screen text-gray-500 bg-teal-50 ">
       {/* <Head>
         <title>Mintbase - Simple Marketplace Example</title>
       </Head> */}

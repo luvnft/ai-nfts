@@ -5,7 +5,7 @@ Description: This hook calls metadataByMetadataById method from @mintbase-js/dat
 
 */
 
-import { metadataByMetadataId, ParsedDataReturn } from "@mintbase-js/data";
+import { metadataByMetadataId } from "@mintbase-js/data";
 import { useQuery } from "react-query";
 import { parseYactoToNear } from "../lib/numbers";
 

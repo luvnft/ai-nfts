@@ -1,4 +1,3 @@
-import { FinalExecutionOutcome } from "@mintbase-js/auth";
 import { useWallet } from "@mintbase-js/react";
 import { buy, execute, TransactionSuccessEnum } from "@mintbase-js/sdk";
 import {
@@ -15,7 +14,6 @@ The component that handles the NFT Buy Information
 */
 
 import { useState } from "react";
-import { MAINNET_CONFIG } from "../../config/constants";
 import { useNearPrice } from "../../hooks/useNearPrice";
 import { nearToYocto } from "../../lib/numbers";
 import { SignInButton } from "../SignInButton";
@@ -58,9 +56,7 @@ function AvailableNftComponent({ data }) {
         ...buy({
           contractAddress: nftContractId,
           tokenId,
-          affiliateAccount:
-            process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT ||
-            MAINNET_CONFIG.affiliate,
+          affiliateAccount: process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT,
           marketId,
           price: nearToYocto(currentPrice.toString()),
         }),

@@ -1,4 +1,4 @@
-export default function Footer({ error }) {
+export default function Error({ error }) {
   if (!error) return null;
 
   return (

@@ -55,8 +55,6 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
   const [uploading, setUploading] = useState(false);
   const [minting, setMinting] = useState(false);
 
-  //mint form related
-
   const onSubmit = async (data) => {
     // console.log("Data", data);
     const wallet = await selector.wallet();
@@ -69,7 +67,6 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
       console.error("Error uploading file");
       return;
     } else {
-      // console.log("File", file);
       try {
         // upload to arweave -> Mint NFT
         setUploading(true);
@@ -207,10 +204,6 @@ async function handleMint(reference, activeAccountId, wallet) {
     });
 
     const output = await execute({ wallet }, mintCall);
-    // console.log(
-    //   "Successfully minted:",
-    //   output.transaction_outcome.outcome.status.SuccessReceiptId
-    // );
     if (output.transaction_outcome.outcome.status.SuccessReceiptId) {
       alert("Successfully minted");
       return true;

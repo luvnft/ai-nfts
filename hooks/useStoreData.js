@@ -13,9 +13,7 @@ const mapStoreData = (data) => ({
 });
 
 const useStoreData = () => {
-  const defaultStores = process.env.NEXT_PUBLIC_STORES;
-
-  const formatedStores = defaultStores.split(/[ ,]+/);
+  const formatedStores = ["nftaiartistry.mintspace2.testnet"];
 
   const { isLoading, error, data } = useQuery(
     "storeData",

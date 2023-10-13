@@ -7,6 +7,11 @@ function Item({ item, showModal }) {
 
   return (
     <MbThingCard
+      style={{
+        border: "1px solid ",
+        borderRadius: "",
+        backgroundColor: "#6ee7b7",
+      }}
       cardInfo={{
         centerElement: (
           <div className="w-full relative object-cover">

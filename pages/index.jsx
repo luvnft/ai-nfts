@@ -92,7 +92,7 @@ export default function Home() {
 
   if (isConnected)
     return (
-      <div className="bg-teal-50 h-screen">
+      <>
         <Navbar />
         <main className="container max-w-[1024px] mx-auto p-5 mt-6">
           <div className="container max-w-[512px] mx-auto">
@@ -126,7 +126,7 @@ export default function Home() {
             submissionCount={submissionCount}
           />
         </main>
-      </div>
+      </>
     );
 
   return (

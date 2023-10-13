@@ -32,7 +32,7 @@ export default function Canvas({
   };
 
   return (
-    <div className="relative">
+    <div className="relative text-teal-900">
       {scribbleExists || (
         <div>
           <div className="absolute grid w-full h-full p-3 place-items-center pointer-events-none text-xl">

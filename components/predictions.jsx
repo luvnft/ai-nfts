@@ -24,7 +24,9 @@ export default function Predictions({ predictions, submissionCount }) {
 
   return (
     <section className="w-full my-10">
-      <h2 className="text-center text-3xl font-bold m-6">Results</h2>
+      <h2 className="text-center text-3xl font-bold m-6 text-teal-700">
+        Results
+      </h2>
 
       {submissionCount > Object.keys(predictions).length && (
         <div className="pb-10 mx-auto w-full text-center">
@@ -54,7 +56,6 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
   const { selector, activeAccountId } = useWallet();
   const [uploading, setUploading] = useState(false);
   const [minting, setMinting] = useState(false);
-
   const [linkCopied, setLinkCopied] = useState(false);
 
   const copyLink = () => {
@@ -112,7 +113,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
   if (!prediction) return null;
 
   return (
-    <div className="mt-6 mb-12">
+    <div className="mt-6 mb-12 text-teal-700">
       <div className="w-1/2 aspect-circle flex justify-center items-center mx-auto">
         {prediction.output?.length ? (
           <img
@@ -138,7 +139,11 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
 
         {showLinkToNewScribble && (
           <Link href="/">
-            <button className="lil-button" onClick={copyLink}>
+            <button
+              className="lil-button"
+              onClick={copyLink}
+              style={{ color: "#0f766e" }}
+            >
               <PlusCircleIcon className="icon" />
               Create a new scribble
             </button>
@@ -147,7 +152,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
       </div>
       {prediction.output?.length && !minting && !uploading ? (
         <div className="flex flex-col items-center justify-center mt-2">
-          <MbText className="text-3xl">Mint your NFT Now</MbText>
+          <MbText className="text-3xl font-semibold">Mint your NFT Now</MbText>
           <div className="w-full mt-4 space-y-4">
             <form
               className="flex flex-col gap-2"
@@ -155,7 +160,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
                 console.error(errorMsgs)
               )}
             >
-              <label>Name</label>
+              <label className="font-bold">Name</label>
               <input
                 className="text-black"
                 placeholder="Name"
@@ -166,7 +171,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
                 })}
               />
 
-              <label>Description</label>
+              <label className="font-bold">Description</label>
               <input
                 className="text-black"
                 placeholder="Token description"
@@ -176,7 +181,11 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
               />
 
               <div className="flex justify-center items-center mt-4">
-                <MbButton type="submit" label="Mint Your NFT" />
+                <MbButton
+                  style={{ backgroundColor: "#083344", color: "white" }}
+                  type="submit"
+                  label="Mint Your NFT"
+                />
               </div>
             </form>
           </div>
@@ -186,7 +195,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
           {uploading && (
             <div className="flex flex-col justify-center items-center mt-4">
               <BounceLoader color="#0f766e" />
-              <p className="text-lg font-bold text-green-800">
+              <p className="text-lg font-bold text-teal-700">
                 Uploading Assets to Arweave
               </p>
             </div>
@@ -194,7 +203,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
           {minting && (
             <div className="flex flex-col justify-center items-center mt-4">
               <BounceLoader color="#0f766e" />
-              <p className="text-lg font-bold text-green-800">
+              <p className="text-lg font-bold text-teal-700">
                 Minting your NFT
               </p>
             </div>

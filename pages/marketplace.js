@@ -27,7 +27,7 @@ function Store() {
       </Head> */}
       {/* <Header /> */}
       <Navbar />
-      <div className="m-8">
+      {/* <div className="m-8">
         <MbText>
           1. Make sure to change the env NEXT_PUBLIC_AFFILIATE_ACCOUNT to your
           own NEAR account
@@ -49,7 +49,7 @@ function Store() {
             />
           </a>
         </div>
-      </div>
+      </div> */}
 
       {/* Useful Div 🟡🟡🟡 */}
       <div className="flex w-full">

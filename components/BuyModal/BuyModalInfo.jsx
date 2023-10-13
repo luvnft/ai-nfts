@@ -95,16 +95,21 @@ function AvailableNftComponent({ data }) {
         <div className="mb-8">
           <MbInfoCard
             boxInfo={{
-              description: `${currentPrice.toFixed(2)} N`,
-              title: "Price",
-              lowerLeftText: `~ ${(
-                Number(nearPrice) * Number(currentPrice)
-              ).toFixed(2)} USD`,
+              description: (
+                <div className="text-black">${currentPrice.toFixed(2)} N</div>
+              ),
+              title: <div className="text-black">Price </div>,
+              lowerLeftText: (
+                <div className="text-black">
+                  ~ ${(Number(nearPrice) * Number(currentPrice)).toFixed(2)} USD{" "}
+                </div>
+              ),
             }}
           />
           <div className="mt-4">
             <MbText className="text-gray-700 mb-2">Quantity</MbText>
             <MbAmountInput
+              className="text-black"
               maxAmount={Math.min(amountAvailable, 1)}
               onValueChange={(e) => {
                 setNewPrice(e);

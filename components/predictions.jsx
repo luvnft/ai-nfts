@@ -98,28 +98,27 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
 
   return (
     <div className="mt-6 mb-12">
-      <div className="shadow-lg border my-5 p-5 bg-white flex justify-center">
-        {/* <div className="w-1/2 aspect-square relative border">
+      {/* <div className="w-1/2 aspect-square relative border">
           <img
             src={prediction.input.image}
             alt="input scribble"
             className="w-full aspect-square"
           />
         </div> */}
-        <div className="w-1/2 aspect-square relative">
-          {prediction.output?.length ? (
-            <img
-              src={prediction.output[prediction.output.length - 1]}
-              alt="output image"
-              className="w-full aspect-square"
-            />
-          ) : (
-            <div className="grid h-full place-items-center">
-              <Loader />
-            </div>
-          )}
-        </div>
+      <div className="w-1/2 aspect-circle flex justify-center items-center mx-auto">
+        {prediction.output?.length ? (
+          <img
+            src={prediction.output[prediction.output.length - 1]}
+            alt="output image"
+            className="w-full aspect-square"
+          />
+        ) : (
+          <div className="grid h-full place-items-center">
+            <Loader />
+          </div>
+        )}
       </div>
+      {/* </div> */}
       <div className="text-center px-4 opacity-60 text-xl">
         &ldquo;{prediction.input.prompt}&rdquo;
       </div>

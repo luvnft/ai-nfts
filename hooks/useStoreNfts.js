@@ -13,7 +13,7 @@ const mapStoreNfts = (data) => ({
 });
 
 const useStoreNfts = (store) => {
-  const defaultStores = process.env.NEXT_PUBLIC_STORES;
+  const defaultStores = process.env.NEXT_PUBLIC_STORES || "";
 
   const formatedStores = defaultStores.split(/[ ,]+/);
 

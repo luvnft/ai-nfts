@@ -138,41 +138,43 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
           </Link>
         )}
       </div>
-      <div className="flex flex-col items-center justify-center mt-2">
-        <MbText className="text-3xl">Mint your NFT Now</MbText>
-        <div className="w-full mt-4 space-y-4">
-          <form
-            className="flex flex-col gap-2"
-            onSubmit={handleSubmit(onSubmit, (errorMsgs) =>
-              console.error(errorMsgs)
-            )}
-          >
-            <label>Name</label>
-            <input
-              className="text-black"
-              placeholder="Name"
-              required
-              {...register("title", {
-                required: true,
-                minLength: { value: 1, message: "" },
-              })}
-            />
+      {prediction.output?.length ? (
+        <div className="flex flex-col items-center justify-center mt-2">
+          <MbText className="text-3xl">Mint your NFT Now</MbText>
+          <div className="w-full mt-4 space-y-4">
+            <form
+              className="flex flex-col gap-2"
+              onSubmit={handleSubmit(onSubmit, (errorMsgs) =>
+                console.error(errorMsgs)
+              )}
+            >
+              <label>Name</label>
+              <input
+                className="text-black"
+                placeholder="Name"
+                required
+                {...register("title", {
+                  required: true,
+                  minLength: { value: 1, message: "" },
+                })}
+              />
 
-            <label>Description</label>
-            <input
-              className="text-black"
-              placeholder="Token description"
-              {...register("description", {
-                required: true,
-              })}
-            />
+              <label>Description</label>
+              <input
+                className="text-black"
+                placeholder="Token description"
+                {...register("description", {
+                  required: true,
+                })}
+              />
 
-            <div className="flex justify-center items-center mt-4">
-              <MbButton type="submit" label="Mint Your NFT" />
-            </div>
-          </form>
+              <div className="flex justify-center items-center mt-4">
+                <MbButton type="submit" label="Mint Your NFT" />
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }

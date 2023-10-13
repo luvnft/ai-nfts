@@ -10,12 +10,11 @@ function MyApp({ Component, pageProps }) {
   const nearNetwork = network || NEAR_NETWORKS.TESTNET;
 
   // also the store you should be a minter
-  const contractAddress =
-    process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "mystore.mintbase1.near";
+  const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 
   mbjs.config({
-    network: nearNetwork,
-    contractAddress: contractAddress,
+    network: "testnet",
+    contractAddress: "nftaiartistry.mintspace2.testnet",
   });
 
   const queryClient = new QueryClient();

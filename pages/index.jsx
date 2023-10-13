@@ -1,7 +1,6 @@
 import Canvas from "components/canvas";
 import PromptForm from "components/prompt-form";
 import Head from "next/head";
-import Link from "next/link";
 import { useState } from "react";
 import Predictions from "components/predictions";
 import Error from "components/error";
@@ -24,7 +23,6 @@ export default function Home() {
   const [scribbleExists, setScribbleExists] = useState(false);
   const [scribble, setScribble] = useState(null);
 
-  //to study🟡
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -40,9 +38,6 @@ export default function Home() {
     setIsProcessing(true);
 
     const fileUrl = await uploadFile(scribble);
-    // console.log(scribble);
-
-    //scribble creates the buffer of image data on the canvas 🟡
 
     const body = {
       prompt,
@@ -136,18 +131,13 @@ export default function Home() {
         <meta name="description" content={pkg.appMetaDescription} />
         <meta property="og:title" content={pkg.appName} />
         <meta property="og:description" content={pkg.appMetaDescription} />
-        {/* <meta
-          property="og:image"
-          content={`${HOST}/og-b7xwc4g4wrdrtneilxnbngzvti.jpg`}
-        /> */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> */}
       </Head>
 
-      <div className="mx-6 sm:mx-24 mt-56 mb-4">
+      <div className="mx-6 sm:mx-24 mt-56 mb-4 text-teal-700">
         <div className="w-full flex flex-col justify-center items-center space-y-8">
           <div className="flex flex-col justify-center items-center space-y-8">
-            <MbText className="h1-90">NFT AI Artistry</MbText>
+            <MbText className="h1-90 font-bold">AI NFT</MbText>
             <MbText className="p-big-90">
               A platform that allows artists and AI algorithms to collaborate in
               the creation of unique NFT artworks.

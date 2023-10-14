@@ -30,7 +30,7 @@ export default function PromptForm({ onSubmit, scribbleExists }) {
           type="submit"
           disabled={disabled}
         >
-          Go
+          Generate Art
         </button>
       </div>
     </form>

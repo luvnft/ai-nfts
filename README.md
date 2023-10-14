@@ -18,6 +18,8 @@ Team [AlphaDevs](https://alphadevs.dev)
 - ControlNet (An open-source machine learning model that generates images from text and scribbles)
 - Vercel & Next JS (Front-end & Deployment)
 
+## App Images / ScreenShots
+
 ## Libraries / APIs Used
 
 ### Frontend
@@ -42,24 +44,20 @@ Team [AlphaDevs](https://alphadevs.dev)
 
 ### 1. Minter
 
-- Backend node server
-- Tag generation feature hosted locally to avoid extra server costs and API abuse :P
-- Extra : Used to generate Image buffers as Web browser lack access to low level system APIs (there can be better way to solve it in client side as well , open to ideas)
+- You can create art from text and scribbles. Enter prompt and click on "Generate Art"
+- Add NFT details such as name, description and click on "Mint NFT"
+- This uploads the image to Arweave and creates an NFT using Mintbase SDK
 
 ### 2. Marketplace
 
-- Wallet connection with ArConnect and arweave web wallet
-- Display of tags and image content in marketplace
-- Easy query with asset tags and find creators and their work with their address
-- Generate Tags and Upload .png images
-- References and Codebases Used : Arweave Cookbook, Public Square App tutorial by DanMacDonald, Improved Code (created PR) and added fixes, >80% new code and features added
+- This Marketplace is inspired from Mintbase Simple Marketplace Template and Official docs. It has been modified to suit AI NFT marketplace needs
+- You can view all the NFTs minted by owners
+- Click on an NFT to view its details and buy directly from the marketplace if it is listed for saleby owner.
 
 ### 3. Contract
 
-- Add License Fee
-- Add Payment Address
-- Create and edit content custom tags for your content
-- Displays a License tag under licensed assets with their License-Fee
+- `nftaiartistry.mintspace2.testnet` is the contract deployed on Near Testnet using Mintbase interface.
+- It allows allowed minters to mint AI NFTs and list them for sale on the marketplace.
 
 ## Team
 

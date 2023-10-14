@@ -19,7 +19,18 @@ Team [AlphaDevs](https://alphadevs.dev) - [@0xyshv](https://github.com/0xyshv) &
 - ControlNet (An open-source machine learning model that generates images from text and scribbles)
 - Vercel & Next JS (Front-end & Deployment)
 
-## App Images / ScreenShots
+## App Working / ScreenShots
+
+![image](/public/screenshots/1.png)
+![image](/public/screenshots/2.png)
+![image](/public/screenshots/3.png)
+![image](/public/screenshots/4.png)
+![image](/public/screenshots/5.png)
+![image](/public/screenshots/6.png)
+![image](/public/screenshots/7.png)
+![image](/public/screenshots/8.png)
+![image](/public/screenshots/9.png)
+![image](/public/screenshots/10.png)
 
 ## Tech Stack / Libraries
 

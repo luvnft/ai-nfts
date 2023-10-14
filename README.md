@@ -1,14 +1,15 @@
 # AI NFTs
 
 Encode X Near Horizon 2023 Hackathon / Build Templates out of Mintbase SDK Bounty.
-Team [AlphaDevs](https://alphadevs.dev)
+
+Team [AlphaDevs](https://alphadevs.dev) - @0xyshv & @mr-harshtyagi
 
 ## Links
 
 - [Deployed URL](https://ai-nfts-sooty.vercel.app/)
-- [Presentation PDF](https://arweave.net/i45V9gaYHpt69tTSMH1ip1F--y2X8q7344G1dqa9ETY)
-- [AI NFT Store Contract](https://testnet.mintbase.xyz/contract/nftaiartistry.mintspace2.testnet)
 - [Git Repo with README](https://github.com/0xAlphaDevs/ai-nfts-mintbase)
+- [NFT Smart Contract](https://testnet.mintbase.xyz/contract/nftaiartistry.mintspace2.testnet)
+- [Pitch Deck / Presentation PDF](https://docs.google.com/presentation/d/1wj2w7wOYvNFw1DN4wG_sWJ-JAB5GllnJZhiHwG-hlWM)
 
 ## Protocol Specs
 

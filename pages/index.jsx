@@ -46,7 +46,7 @@ export default function Home() {
     };
     // data for http request
 
-    const response = await fetch("/api/predictions", {
+    const response = await fetch(`${window.location.href}/api/predictions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -29,17 +29,20 @@ export default async function handler(req) {
   });
 
   if (prediction?.error) {
-    return NextResponse.json({ status: 500 });
+    return NextResponse.json({
+      status: 500,
+      message: prediction.error.message,
+    });
   }
 
   return NextResponse.json(prediction, { status: 201 });
 }
 
-// export const config = {
-//   runtime: "nodejs",
-//   api: {
-//     bodyParser: {
-//       sizeLimit: "10mb",
-//     },
-//   },
-// };
+export const config = {
+  runtime: "edge",
+  api: {
+    bodyParser: {
+      sizeLimit: "10mb",
+    },
+  },
+};

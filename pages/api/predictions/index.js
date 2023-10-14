@@ -23,14 +23,10 @@ export default async function handler(req) {
 
   let prediction;
 
-  if (process.env.USE_REPLICATE_DEPLOYMENT) {
-  } else {
-    prediction = await replicate.predictions.create({
-      version:
-        "435061a1b5a4c1e26740464bf786efdfa9cb3a3ac488595a2de23e143fdb0117",
-      input,
-    });
-  }
+  prediction = await replicate.predictions.create({
+    version: "435061a1b5a4c1e26740464bf786efdfa9cb3a3ac488595a2de23e143fdb0117",
+    input,
+  });
 
   if (prediction?.error) {
     return NextResponse.json({ status: 500 });
@@ -39,11 +35,11 @@ export default async function handler(req) {
   return NextResponse.json(prediction, { status: 201 });
 }
 
-export const config = {
-  runtime: "nodejs",
-  api: {
-    bodyParser: {
-      sizeLimit: "10mb",
-    },
-  },
-};
+// export const config = {
+//   runtime: "nodejs",
+//   api: {
+//     bodyParser: {
+//       sizeLimit: "10mb",
+//     },
+//   },
+// };

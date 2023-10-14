@@ -1,6 +1,6 @@
 # AI NFTs
 
-EncodeXNear Horizon 2023 Hackathon / Build Templates out of Mintbase SDK Bounty.
+Encode X Near Horizon 2023 Hackathon / Build Templates out of Mintbase SDK Bounty.
 Team [AlphaDevs](https://alphadevs.dev)
 
 ## Links
@@ -20,7 +20,7 @@ Team [AlphaDevs](https://alphadevs.dev)
 
 ## App Images / ScreenShots
 
-## Libraries / APIs Used
+## Tech Stack / Libraries
 
 ### Frontend
 
@@ -48,13 +48,13 @@ Team [AlphaDevs](https://alphadevs.dev)
 - Add NFT details such as name, description and click on "Mint NFT"
 - This uploads the image to Arweave and creates an NFT using Mintbase SDK
 
-### 2. Marketplace
+### 2. NFT Marketplace
 
 - This Marketplace is inspired from Mintbase Simple Marketplace Template and Official docs. It has been modified to suit AI NFT marketplace needs
 - You can view all the NFTs minted by owners
-- Click on an NFT to view its details and buy directly from the marketplace if it is listed for saleby owner.
+- Click on an NFT to view its details and buy directly from the marketplace if it is listed for sale by owner.
 
-### 3. Contract
+### 3. Smart Contract
 
 - `nftaiartistry.mintspace2.testnet` is the contract deployed on Near Testnet using Mintbase interface.
 - It allows allowed minters to mint AI NFTs and list them for sale on the marketplace.

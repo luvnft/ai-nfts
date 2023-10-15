@@ -11,7 +11,7 @@ Team -
 ## Links
 
 - [Deployed URL](https://ai-nfts-sooty.vercel.app/)
-- [Git Repo with README](https://github.com/0xAlphaDevs/ai-nfts-mintbase)
+- [Git Repo with README](https://github.com/mr-harshtyagi/ai-nfts)
 - [NFT Smart Contract](https://testnet.mintbase.xyz/contract/nftaiartistry.mintspace2.testnet)
 
 ## Protocol Specs

@@ -2,7 +2,11 @@
 
 Encode X Near Horizon 2023 Hackathon / Build Templates out of Mintbase SDK Bounty.
 
-Team - [@mr-harshtyagi](https://github.com/mr-harshtyagi)
+Team - 
+
+[Harsh Tyagi (@mr-harshtyagi)](https://github.com/mr-harshtyagi)
+
+[Yashasvi Chaudhary (@0xyshv)](https://github.com/0xyshv)
 
 ## Links
 
@@ -75,10 +79,7 @@ Team - [@mr-harshtyagi](https://github.com/mr-harshtyagi)
 ### Github
 
 [Harsh Tyagi](https://github.com/mr-harshtyagi)
-
-### Twitter / X
-
-[Harsh Tyagi](https://twitter.com/mr_harshtyagi)
+[Yashasvi Chaudhary](https://twitter.com/0xyshv)
 
 ## Thanks
 

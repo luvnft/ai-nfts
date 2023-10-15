@@ -2,14 +2,13 @@
 
 Encode X Near Horizon 2023 Hackathon / Build Templates out of Mintbase SDK Bounty.
 
-Team [AlphaDevs](https://alphadevs.dev) - [@0xyshv](https://github.com/0xyshv) & [@mr-harshtyagi](https://github.com/mr-harshtyagi)
+Team - [@mr-harshtyagi](https://github.com/mr-harshtyagi)
 
 ## Links
 
 - [Deployed URL](https://ai-nfts-sooty.vercel.app/)
 - [Git Repo with README](https://github.com/0xAlphaDevs/ai-nfts-mintbase)
 - [NFT Smart Contract](https://testnet.mintbase.xyz/contract/nftaiartistry.mintspace2.testnet)
-- [Pitch Deck / Presentation PDF](https://docs.google.com/presentation/d/1wj2w7wOYvNFw1DN4wG_sWJ-JAB5GllnJZhiHwG-hlWM)
 
 ## Protocol Specs
 
@@ -76,12 +75,10 @@ Team [AlphaDevs](https://alphadevs.dev) - [@0xyshv](https://github.com/0xyshv) &
 ### Github
 
 [Harsh Tyagi](https://github.com/mr-harshtyagi)
-[Yashasvi Chaudhary](https://github.com/0xyshv)
 
 ### Twitter / X
 
 [Harsh Tyagi](https://twitter.com/mr_harshtyagi)
-[Yashasvi Chaudhary](https://twitter.com/0xyshv)
 
 ## Thanks
 

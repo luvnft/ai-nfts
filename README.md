@@ -2,6 +2,8 @@
 
 Encode X Near Horizon 2023 Hackathon / Build Templates out of Mintbase SDK Bounty.
 
+WINNER (Bounty $1500 USD) - [Announcement](https://x.com/encodeclub/status/1721543275301970365?s=20)
+
 Team - 
 
 [Harsh Tyagi (@mr-harshtyagi)](https://github.com/mr-harshtyagi)

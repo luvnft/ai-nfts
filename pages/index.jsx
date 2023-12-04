@@ -138,7 +138,7 @@ export default function Home() {
         <div className="w-full flex flex-col justify-center items-center space-y-8">
           <div className="flex flex-col justify-center items-center space-y-8">
           <img src="/ainft.png" alt="AI NFTs Image" className="h-64 w-64 object-contain" />
-            <MbText className="h1-90 font-bold">AI NFT</MbText>
+            <MbText className="h1-90 font-bold">🤖 AI</MbText>
             <MbText className="p-big-90">
              A platform empowering creators to generate income by selling NFTs as part of their blockchain side hustle.<br />
              <a href="https://blog.luvnft.com"><strong>Create</strong></a> a blog dedicated to your AI NFT journey. Sell your AI NFT and associated blog as NFTs (on testnet).<br />

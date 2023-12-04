@@ -25,7 +25,7 @@ function Navbar() {
 
   return (
     <nav className="flex justify-between items-center w-full bg-teal-700 sticky top-0 z-40 lg:border-b border-solid border-gray-150">
-      <h1 className="font-bold p-2 sm:p-4  text-teal-100">AI NFT</h1>
+      <h1 className="font-bold p-2 sm:p-4  text-teal-100">🤖 AI</h1>
       <div className="flex gap-3">
         <Link
           href="https://ainft.luvnft.com"
@@ -50,7 +50,7 @@ function Navbar() {
         <MbButton
           onClick={buttonAction}
           label={buttonLabel}
-          style={{ backgroundColor: "#000000", color: "#000000" }}
+          style={{ backgroundColor: "#000000", color: "#FFFFFF" }}
         />
       </div>
     </nav>

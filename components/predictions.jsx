@@ -147,7 +147,7 @@ export function Prediction({ prediction, showLinkToNewScribble = true }) {
 
               <div className="flex justify-center items-center mt-4">
                 <MbButton
-                  style={{ backgroundColor: "#083344", color: "white" }}
+                  style={{ backgroundColor: "#000000", color: "white" }}
                   type="submit"
                   label="Mint Your NFT"
                 />

@@ -10,7 +10,7 @@ function Item({ item, showModal }) {
       style={{
         border: "1px solid ",
         borderRadius: "",
-        backgroundColor: "#6ee7b7",
+        backgroundColor: "#000000",
       }}
       cardInfo={{
         centerElement: (

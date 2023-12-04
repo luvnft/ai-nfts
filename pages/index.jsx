@@ -140,11 +140,9 @@ export default function Home() {
           <img src="/ainft.png" alt="AI NFTs Image" className="h-64 w-64 object-contain" />
             <MbText className="h1-90 font-bold">AI NFT</MbText>
             <MbText className="p-big-90">
-            <p>
-               A platform where creators can generate income by selling NFTs as a blockchain side hustle.<br/>
-               Create a blog about your AI NFT <a href="https://blog.luvnft.com">here</a>.<br/>
-               Sell your AI NFT and your blog as an NFT (on testnet).
-            </p>
+             A platform empowering creators to generate income by selling NFTs as part of their blockchain side hustle.<br />
+             <a href="https://blog.luvnft.com"><strong>Create</strong></a> a blog dedicated to your AI NFT journey. Sell your AI NFT and associated blog as NFTs (on testnet).<br />
+             Tag us in your social media posts @luvnft #AILUVNFT🤖
             </MbText>
           </div>
           <div>

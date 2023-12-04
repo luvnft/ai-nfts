@@ -15,7 +15,7 @@ function Intro() {
       {/** login/logout with wallet */}
       <div className="flex items-center sm:mr-2">
         <MbButton
-          style={{ backgroundColor: "#083344", color: "#ccfbf1" }}
+          style={{ backgroundColor: "#000000", color: "#ffffff" }}
           onClick={buttonAction}
           label={buttonLabel}
         />

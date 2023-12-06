@@ -28,7 +28,7 @@ function Navbar() {
       <h1 className="font-bold p-2 sm:p-4  text-teal-100">🤖 AI</h1>
       <div className="flex gap-3">
         <Link
-          href="https://ainft.luvnft.com"
+          href="https://ai.luvnft.com"
           className={`text-teal-100 font-bold no-underline px-4 py-2 rounded-lg transition hover:shadow-lg ${
             isCreateNFTActive ? "bg-cyan-950 text-teal-100" : ""
           } hover:bg-cyan-950 hover:text-teal-100`}

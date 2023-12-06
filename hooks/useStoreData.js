@@ -13,7 +13,7 @@ const mapStoreData = (data) => ({
 });
 
 const useStoreData = () => {
-  const formatedStores = ["nftaiartistry.mintspace2.testnet"];
+  const formatedStores = ["ailuvnft.mintspace2.testnet"];
 
   const { isLoading, error, data } = useQuery(
     "storeData",

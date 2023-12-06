@@ -13,7 +13,7 @@ const mapStoreNfts = (data) => ({
 });
 
 const useStoreNfts = (store) => {
-  const formatedStores = ["nftaiartistry.mintspace2.testnet"];
+  const formatedStores = ["ailuvnft.mintspace2.testnet"];
 
   const { isLoading, error, data } = useQuery(
     ["storeNfts", store],

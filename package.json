@@ -37,6 +37,7 @@
     "mintbase-ui": "^1.0.1",
     "naughty-words": "^1.2.0",
     "near-api-js": "^2.1.4",
+    "near-cli": "^3.4.2",
     "next": "^13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
